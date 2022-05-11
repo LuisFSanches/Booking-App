@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
+import cors from 'cors'
 import cookieParser from "cookie-parser";
 import authRoute from './routes/auth.js'
 import usersRoute from './routes/users.js'
@@ -20,6 +21,7 @@ try{
 }
 
 //Middlewares
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/auth', authRoute)
